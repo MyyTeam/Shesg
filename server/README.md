@@ -6,7 +6,7 @@ git clone [github repository url]
 ## Docker(Recommended)
 Docker environment is required. Execute the following command in the root directory:
 ```shell
-docker-compose -f docker-compose-shesg.yaml up -d
+docker-compose -f docker-compose-shesg.yml up -d
 ```
 
 ## deploy using src
