@@ -1,0 +1,202 @@
+.control-link {
+  // margin-bottom: 16px;
+  margin: 16px 0;
+}
+.link-list-empty {
+  line-height: 1.5;
+  font-size: 16px;
+  text-align: center;
+  .add-website-link {
+    color: $main;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: underline;
+    cursor: pointer;
+    &:hover {
+      color: #1E5AF3;
+    }
+  }
+  @media screen and (max-width: 540px) {
+    font-size: 14px;
+  }
+}
+
+.link-list {
+  min-height: 400px;
+  &-group {
+    margin-bottom: 10px;
+    .group-head {
+      padding: 10px 0;
+      font-weight: 600;
+      font-size: 20px;
+    }
+    .group-icon {
+      padding-right: 6px;
+      color: $main;
+      width: 30px;
+    }
+    .question-icon {
+      padding-left: 6px;
+      color: $gray;
+      cursor: pointer;
+      width: 22px;
+    }
+  }
+  .quick-links {
+    position: fixed;
+    z-index: 100;
+    right: 0;
+    top: 300px;
+    ::v-deep {
+      .dropdown-toggle {
+        width: 170px;
+        background: $white;
+        border: 1px solid $border;
+        color: #282828;
+        display: flex;
+        align-items: center;
+        &::after {
+          margin-left: auto;
+        }
+        &:active,
+        &:focus {
+          box-shadow: none;
+        }
+      }
+      .group-icon {
+        // padding-right: 6px;
+        color: $main;
+        width: 30px;
+        font-size: 20px;
+        // vertical-align: middle;
+      }
+      .dropdown-menu {
+        margin-top: 0;
+        width: 170px;
+        transform: translate3d(0px, 38px, 0px) !important;
+      }
+      .dropdown-item {
+        display: flex;
+        align-items: center;
+        padding: 0.375rem 0.75rem;
+      }
+    }
+  }
+  .tip {
+    color: #484848;
+    font-size: 12px;
+  }
+  .login-card {
+    padding-top: 120px;
+    font-size: 20px;
+    text-align: center;
+    color: #282828;
+    .login-btn {
+      padding: 6px 20px;
+      font-size: 20px;
+    }
+    @media screen and (max-width: 540px) {
+      padding-top: 100px;
+      font-size: 16px;
+      .login-btn {
+        font-size: 16px;
+      }
+    }
+  }
+  .earn-btn {
+    .earn-icon {
+      font-size: 16px;
+      color: #f8cd91;
+    }
+  }
+  .empty-card {
+    padding-top: 100px;
+    text-align: center;
+    p {
+      padding-bottom: 16px;
+      font-size: 16px;
+    }
+    .link {
+      padding-top: 30px;
+      color: $main;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+  .loading-wrapper {
+    padding-bottom: 10px;
+    width: 100%;
+    text-align: center;
+    color: #888;
+  }
+  @media screen and (max-width: 700px) {
+    .empty-card {
+      padding-top: 40px;
+      p {
+        padding-bottom: 10px;
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+.group-tab {
+  border: 0;
+  ::v-deep {
+    .fixed-nav-content {
+      justify-content: center;
+    }
+    .tab-title {
+      padding: 0;
+      width: 40%;
+      font-weight: 600;
+      font-size: 15px;
+      flex-shrink: 1;
+      text-align: center;
+      .tab-icon {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+.link-list-group__product .wrapper >span {
+  display: flex;
+  .control-link {
+    width: 50%;
+    padding: 0 16px 16px;
+    margin: 0;
+    ::v-deep &.control-link__1 .collapse-card {
+      float: right;
+      .triangle {
+        left: auto;
+        right: 145px;
+      }
+    }
+  }
+  @media screen and (max-width: 700px) {
+    flex-wrap: wrap;
+    .control-link {
+      width: 100%;
+      padding: 0 0 16px;
+    }
+  }
+}
+
+.copy-loading-card {
+  text-align: center;
+  font-size: 18px;
+  color: #282828;
+  .loading-icon {
+    margin-bottom: 20px;
+    font-size: 30px;
+    animation: turn 1s linear infinite;
+  }
+  @keyframes turn{
+    0%{-webkit-transform:rotate(0deg);}
+    25%{-webkit-transform:rotate(90deg);}
+    50%{-webkit-transform:rotate(180deg);}
+    75%{-webkit-transform:rotate(270deg);}
+    100%{-webkit-transform:rotate(360deg);}
+  }
+}

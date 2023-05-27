@@ -1,0 +1,196 @@
+ul,li {
+  padding: 0;
+}
+li { 
+  list-style: none;
+}
+p {
+  margin: 0;
+}
+.main-btn {
+  background: $main;
+  border-color: $main;
+  &:hover {
+    background: #1E5AF3;
+    border-color: #1E5AF3;
+  }
+  &:focus {
+    box-shadow: none;
+  }
+}
+.second-btn {
+  color: #282828;
+  background: $white;
+  border-color: #DDDDDD;
+}
+
+.warn-btn {
+  background: $warn;
+  border-color: $warn;
+  color: $white;
+  &:hover,
+  &:active,
+  &:focus {
+    color: $white;
+    background: $orange;
+    border-color: $orange;
+  }
+}
+
+.main-plain-btn {
+  color: $main;
+  background: $white;
+  border-color: $main;
+  &:hover {
+    background: $main;
+    border-color: $main;
+  }
+  &.disabled {
+    cursor: not-allowed;
+    color: $gray;
+    border-color: $gray;
+    background: transparent;
+  }
+}
+
+.dropdown-menu {
+  padding: 10px 0;
+  border: 0;
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 16%);
+  .b-dropdown-text {
+    padding: 0 16px;
+  }
+}
+
+.terms-modal {
+  padding: 24px 0;
+  .terms-wrap {
+    overflow: auto;
+    height: 500px;
+    padding: 0 24px;
+  }
+}
+
+.manage-link-dialog {
+  padding: 0 14px !important;
+}
+
+.select-product-modal {
+  font-size: 14px;
+  color: $black;
+  &.bio-dialog {
+    .modal-body {
+      padding: 0;
+      position: static;
+    }
+  }
+  @media screen and (min-width: 576px) {
+    max-width: 410px;
+    &.lg-modal {
+      max-width: 800px;
+    }
+    &.md-modal {
+      max-width: 600px;
+    }
+  }
+  @media screen and (max-width: 540px) {
+    padding: 16px !important;
+    &.bio-dialog {
+      padding: 0 !important;
+    }
+  }
+}
+
+.contact-modal {
+  margin: 50px 0 auto auto;
+  .modal-content {
+    overflow: hidden;
+    border: 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 16%);
+  }
+  .modal-body {
+    padding: 0;
+  }
+  @media screen and (max-width: 540px) {
+    margin: 0;
+    padding: 0 !important;
+  }
+}
+
+.user-popup {
+  padding: 0 20px !important;
+  font-size: 16px;
+  .username {
+    color: $black;
+  }
+  .email {
+    font-size: 18px;
+    color: #555555;
+  }
+
+  .logout-btn {
+    color: $main;
+  }
+  .user-item {
+    line-height: 2.2;
+    font-size: 16px;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
+
+.guide-content {
+  color: #282828;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.pagination {
+  .page-item.active .page-link {
+    background-color: $main;
+    border-color: $main;
+  }
+  .page-link {
+    color: $main;
+    &:focus {
+      box-shadow: none;
+    }
+  }
+}
+
+.confirm-dialog {
+  .modal-footer{
+    padding-top: 0;
+    border-top: 0;
+    justify-content: center;
+    flex-wrap: nowrap;
+    button {
+      width: 45%;
+    }
+  }
+}
+
+.ok-dialog {
+  .modal-body {
+    padding-top: 20px;
+  }
+  .modal-footer{
+    padding-top: 0;
+    border-top: 0;
+    justify-content: center;
+    flex-wrap: nowrap;
+    button {
+      width: 30%;
+    }
+  }
+}
+
+body.modal-open {
+  position: fixed;
+  width: 100%;
+  min-height: 100%;
+}
