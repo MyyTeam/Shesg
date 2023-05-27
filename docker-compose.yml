@@ -1,0 +1,46 @@
+version: "2.8"
+services:
+  shesg-front:
+    restart: always
+    image: public.ecr.aws/z2s3p1i6/shesg_front
+    container_name: shesg_front
+    ports:
+      - 80:80
+    networks:
+      shesg:
+        aliases:
+          - front
+  mysql57:
+    image: mysql:5.7.25
+    container_name: mysql57
+    privileged: true
+    command: --default-authentication-plugin=mysql_native_password && --init-file /docker-entrypoint-initdb.d/init.sql
+    #command: --init-file /docker-entrypoint-initdb.d/init.sql
+    environment:
+      MYSQL_ROOT_PASSWORD: 'dhgatesz_123'
+    restart: always
+    ports:
+      - 3306:3306
+    volumes:
+     - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      shesg:
+        aliases:
+          - mysql57
+  shesg-server:
+    image: public.ecr.aws/z2s3p1i6/shesg:1.0
+    container_name: shesg
+    privileged: true
+    restart: always
+    depends_on:
+      - mysql57
+    ports:
+      - 7200:7200
+    networks:
+      shesg:
+        aliases:
+          - shesg1.0
+networks:
+  shesg:
+    name: shesg
+    driver: bridge
