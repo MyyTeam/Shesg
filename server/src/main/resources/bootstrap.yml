@@ -1,0 +1,64 @@
+# 将环境相关代码玻璃到bootstrap-profile.yml中，本地启动需要在启动命令指定启动环境
+# ide启动添加spring.profiles.active=dev  配置
+# mvn 命令启动添加--spring.profiles.active=test
+server:
+  port: 7200
+  servlet:
+    context-path: /api
+spring:
+  application:
+    name: shesg
+  profiles:
+    active: dev
+  mvc:
+    servlet:
+      load-on-startup: 0
+  main:
+    allow-bean-definition-overriding: true
+  datasource:
+    url: jdbc:mysql://172.17.0.1:3306/shesg?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai
+    username: root
+    password: dhgatesz_123
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+saas:
+  mybatis-plus:
+    auto-fill:
+      #是否开启自动填充字段
+      enabled: true
+      #是否开启了插入填充
+      enableInsertFill: true
+      #是否开启了更新填充
+      enableUpdateFill: true
+      #创建时间字段名
+      createTimeField: "createdAt"
+      #更新时间字段名
+      updateTimeField: "updatedAt"
+
+management:
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+        step: 1m
+        descriptions: true
+  web:
+    server:
+      auto-time-requests: true
+  endpoints:
+    web:
+      exposure:
+        include: health,prometheus
+
+#商品配置
+product:
+  dhUrl_prod:
+    dhgateproductInfoUrl: https://myyshopds.dhgate.com/apsaras-proxy/prod/com.dhgate.prod.api.ProdServiceV2/2.1.9/detailProductDTO
+    #http://172.22.11.124:7777/apsaras-proxy/prod/com.dhgate.prod.api.ProdServiceV2/2.1.9/detailProductDTO
+
+    distributionSalesPriceUrl: https://myyshopds.dhgate.com/apsaras-proxy/prod/com.dhgate.prod.api.ProdMngService/2.1.9/findSkuPriceByMyyshopDiscount
+#http://172.22.11.124:7777/apsaras-proxy/prod/com.dhgate.prod.api.ProdMngService/2.1.9/findSkuPriceByMyyshopDiscount
+
+openai:
+  api-key: you_api_key
