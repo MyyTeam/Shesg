@@ -2,44 +2,44 @@ create database shesg;
 use shesg;
 create table shesg_links
 (
-    id                 varchar(40)            primary key   not null comment '主键id',
-    shesg_user_id    varchar(40)                          not null comment '用户id',
-    url                text                                 null comment 'url链接',
-    title              varchar(400)                         null comment '标题',
-    image              varchar(400)                         null comment 'link图片地址',
-    is_available       tinyint(1) default 1                 not null comment '是否可用 0-不可用 1 - 可用',
-    created_at         datetime   default CURRENT_TIMESTAMP not null comment '创建时间',
-    updated_at         datetime   default CURRENT_TIMESTAMP not null on update CURRENT_TIMESTAMP comment '更新时间',
-    type               tinyint(1) default 0                 not null comment '类型 0-普通模块 1-选品模块',
-    `rank`             bigint(11) default 0                 not null comment '顺序位次',
-    link_sign tinyint(1) default 1                 not null comment '分库分表标志位',
-    redirect_url       text                                 null comment '跳转的url链接',
-    description        text                                 null comment '链接描述',
-    rate               decimal                              null comment '商品的汇率',
-    gate_itemcode      varchar(255)                         null comment '敦煌的商品的itemcode',
-    commission_amount  decimal(10, 2)                       null comment '佣金金额',
-    product_price      decimal(10, 2)                       null comment '商品价格',
-    is_delete          tinyint(1) default 0                 not null comment '删除标识，1-已删除，0-未删除',
-    index `idx_itemcode` (`gate_itemcode`) using btree comment 'code索引',
-    index `idx_type` (`type`) using btree comment '类型索引',
-    index `idx_user_id` (`shesg_user_id`) using btree comment '用户索引'
+    id                 varchar(40)            primary key   not null comment 'Primary key id',
+    shesg_user_id    varchar(40)                          not null comment 'user id',
+    url                text                                 null comment 'url',
+    title              varchar(400)                         null comment 'Title',
+    image              varchar(400)                         null comment 'link image url',
+    is_available       tinyint(1) default 1                 not null comment 'is_available 0-unavailable 1-available',
+    created_at         datetime   default CURRENT_TIMESTAMP not null comment 'created time',
+    updated_at         datetime   default CURRENT_TIMESTAMP not null on update CURRENT_TIMESTAMP comment 'updated time',
+    type               tinyint(1) default 0                 not null comment 'Type 0-Normal 5-product from DHgate 6-AI-powered product recommendations',
+    `rank`             bigint(11) default 0                 not null comment 'Rank',
+    link_sign tinyint(1) default 1                          not null comment 'link for sharding',
+    redirect_url       text                                 null comment 'redirect_url',
+    description        text                                 null comment 'description',
+    rate               decimal                              null comment 'rate of product',
+    gate_itemcode      varchar(255)                         null comment 'itemcode of DHgate product',
+    commission_amount  decimal(10, 2)                       null comment 'commission amount',
+    product_price      decimal(10, 2)                       null comment 'price of product',
+    is_delete          tinyint(1) default 0                 not null comment 'is_delete，1-deleted，0-not deleted',
+    index `idx_itemcode` (`gate_itemcode`) using btree comment 'index of gate_itemcode',
+    index `idx_type` (`type`) using btree comment 'index of type',
+    index `idx_user_id` (`shesg_user_id`) using btree comment 'index of shesg_user_id'
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COMMENT 'links';
 create table shesg_short_url
 (
-    id                      varchar(40)       primary key        not null comment '主键id',
-    short_url               varchar(255)                         not null comment '短链链接',
-    original_url            text                                 not null comment '原本的链接',
-    short_url_sign tinyint(1) default 1                 not null comment '分库分表标志位',
-    created_at              datetime   default CURRENT_TIMESTAMP not null comment '创建时间',
-    updated_at              datetime   default CURRENT_TIMESTAMP not null on update CURRENT_TIMESTAMP comment '更新时间',
+    id                      varchar(40)       primary key        not null comment 'Primary key id',
+    short_url               varchar(255)                         not null comment 'short_url',
+    original_url            text                                 not null comment 'original_url',
+    short_url_sign          tinyint(1) default 1                 not null comment 'short_url_sign',
+    created_at              datetime   default CURRENT_TIMESTAMP not null comment 'created time',
+    updated_at              datetime   default CURRENT_TIMESTAMP not null on update CURRENT_TIMESTAMP comment 'updated time',
     index `short_url_idx`(`short_url`) using btree
-)ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COMMENT 'shesg短链表';
+)ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COMMENT 'shesg short link';
 
 create table shesg_white_user
 (
-    user_id                  varchar(40)             primary key not null comment '非洲部落id',
-    user_name                varchar(400)                         null comment '用户名',
-    white_user_sign tinyint(1) default 1                 not null comment '分库分表标志位',
+    user_id                  varchar(40)             primary key not null comment 'user_id',
+    user_name                varchar(400)                         null comment 'user_name',
+    white_user_sign         tinyint(1) default 1                 not null comment '分库分表标志位',
     created_at               datetime   default CURRENT_TIMESTAMP not null comment '创建时间',
     updated_at               datetime   default CURRENT_TIMESTAMP not null on update CURRENT_TIMESTAMP comment '更新时间'
 )ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COMMENT 'link_myy_white_user';

@@ -108,7 +108,7 @@ public class OpenAIServiceImpl implements OpenAIService {
     }
 
     private String summaryProductDetails(String details) {
-        String prompt = "帮我压缩这段信息,压缩结果不要超过50个字,这是需要压缩的信息:" + details;
+        String prompt = "Please help me compress this piece of information, the compressed result should not exceed 50 words, this is the information that needs to be compressed:" + details;
         JSONObject data = requestChatGPT(prompt, null);
         return Optional.ofNullable(data).map(d -> d.getString("text")).orElse("");
     }
@@ -135,7 +135,7 @@ public class OpenAIServiceImpl implements OpenAIService {
     }
 
     private void parsePost(String post, Long id) {
-        String prompt = "我会给你发一段网红发布的post,请分析后从我提供的类目中选择一个更适合他带货的类目,以下是我提供的类目列表:['Accessories','Activewear','Bags','Basics & Intimates','Bottoms','Denim','Dresses & Playsuits','Lingerie','Outerwear','Shirts','Shoes','Swimwear','Womenswear],接下来是你需要分析的post原文,请直接告诉我类目名,不要包含任何其它的单词:" + post;
+        String prompt = "I will send you a post published by the creator. Please analyze and choose a category that is more suitable for this creator from the categories I provided. The following is the category list I provided: ['Accessories','Activewear','Bags','Basics & Intimates','Bottoms','Denim','Dresses & Playsuits','Lingerie','Outerwear','Shirts','Shoes','Swimwear','Womenswear], The following is the original text of the post you need to analyze, please tell me the category name directly, do not contain any other words:" + post;
         JSONObject data = requestChatGPT(prompt, null);
         if (ObjectUtil.isNotNull(data)) {
             String result = data.getString("text");

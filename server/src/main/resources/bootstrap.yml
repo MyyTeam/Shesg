@@ -25,15 +25,15 @@ spring:
 saas:
   mybatis-plus:
     auto-fill:
-      #是否开启自动填充字段
+      # Whether to enable autofill fields
       enabled: true
-      #是否开启了插入填充
+      # Whether insert padding is enabled
       enableInsertFill: true
-      #是否开启了更新填充
+      # Whether to enable update padding
       enableUpdateFill: true
-      #创建时间字段名
+      # Creation time field name
       createTimeField: "createdAt"
-      #更新时间字段名
+      # Update time field name
       updateTimeField: "updatedAt"
 
 management:
@@ -61,4 +61,5 @@ product:
 #http://172.22.11.124:7777/apsaras-proxy/prod/com.dhgate.prod.api.ProdMngService/2.1.9/findSkuPriceByMyyshopDiscount
 
 openai:
-  api-key: you_api_key
+  api-key: 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
+  #api-key: you_api_key
