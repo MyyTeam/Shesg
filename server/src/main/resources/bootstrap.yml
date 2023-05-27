@@ -61,5 +61,4 @@ product:
 #http://172.22.11.124:7777/apsaras-proxy/prod/com.dhgate.prod.api.ProdMngService/2.1.9/findSkuPriceByMyyshopDiscount
 
 openai:
-  api-key: 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
-  #api-key: you_api_key
+  api-key: you_api_key
