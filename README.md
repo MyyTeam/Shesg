@@ -1,5 +1,3 @@
-# AllInOneDemo
-
 # shESG Project
 Welcome to the shESG project. This project aims to promote and distribute Environmental, Social, and Governance (ESG) products via content creators among younger generations. The project consists of two parts: the client, and the server.
 
