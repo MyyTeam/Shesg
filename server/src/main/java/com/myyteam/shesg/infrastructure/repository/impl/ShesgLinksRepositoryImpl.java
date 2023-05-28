@@ -1,15 +1,15 @@
 package com.myyteam.shesg.infrastructure.repository.impl;
 
+import cn.hutool.core.bean.BeanUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.myyteam.shesg.enums.LinkAvailableEnum;
 import com.myyteam.shesg.enums.LinkTypeEnum;
-import com.myyteam.shesg.infrastructure.persistence.ShesgLinksAssembler;
 import com.myyteam.shesg.infrastructure.persistence.mapper.ShesgLinksMapper;
 import com.myyteam.shesg.infrastructure.persistence.model.ShesgLinksDO;
 import com.myyteam.shesg.infrastructure.repository.ShesgLinksRepository;
-import com.myyteam.shesg.web.vo.LinksMyyVO;
+import com.myyteam.shesg.web.vo.ShesgLinksVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
@@ -17,7 +17,6 @@ import org.springframework.util.ObjectUtils;
 import javax.annotation.Resource;
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
 @Service
 @Slf4j
@@ -54,20 +53,20 @@ public class ShesgLinksRepositoryImpl implements ShesgLinksRepository {
     }
 
     @Override
-    public List<LinksMyyVO> findLinks(String userId) {
+    public List<ShesgLinksVO> findLinks(String userId) {
         LambdaQueryWrapper<ShesgLinksDO> qw = new LambdaQueryWrapper<>();
         qw.eq(ShesgLinksDO::getShesgUserId, userId)
                 .isNotNull(ShesgLinksDO::getLinkSign)
                 .eq(ShesgLinksDO::getIsDelete, false)
                 .orderByDesc(ShesgLinksDO::getRank);
-        return shesgLinksMapper.selectList(qw).stream().map(ShesgLinksAssembler.INSTANCE::toVO).collect(Collectors.toList());
+        return BeanUtil.copyToList(shesgLinksMapper.selectList(qw), ShesgLinksVO.class);
     }
 
     @Override
-    public List<LinksMyyVO> findUserLinks(String userId) {
+    public List<ShesgLinksVO> findUserLinks(String userId) {
         LambdaQueryWrapper<ShesgLinksDO> qw = new LambdaQueryWrapper<>();
         qw.eq(ShesgLinksDO::getShesgUserId, userId).eq(ShesgLinksDO::getIsAvailable, LinkAvailableEnum.AVAILABLE.getCode()).isNotNull(ShesgLinksDO::getLinkSign).orderByDesc(ShesgLinksDO::getRank);
-        return shesgLinksMapper.selectList(qw).stream().map(ShesgLinksAssembler.INSTANCE::toVO).collect(Collectors.toList());
+        return BeanUtil.copyToList(shesgLinksMapper.selectList(qw), ShesgLinksVO.class);
     }
 
     @Override

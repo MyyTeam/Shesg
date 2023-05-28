@@ -2,8 +2,6 @@ package com.myyteam.shesg.domain.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
-import com.google.common.collect.Lists;
-import com.google.common.collect.Maps;
 import com.myyteam.shesg.config.ProductNacosInfoConfig;
 import com.myyteam.shesg.domain.GetGateInfoService;
 import com.myyteam.shesg.domain.bo.DHResult;
@@ -19,9 +17,7 @@ import org.springframework.web.client.RestTemplate;
 import javax.annotation.Resource;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 @Service
 @Slf4j
@@ -43,7 +39,7 @@ public class GetGateInfoServiceImpl implements GetGateInfoService {
             Long itemCode = dhProductDTO.getItemcode();
             //# 获取分销价并设置
             List<ProductSkuWithPriceDTO> productSkuWithPriceDTOList = findDistributionSalesPrice(supplierId, itemCode);
-            Map<Long, Double> skuPriceMap = Maps.newHashMap();
+            Map<Long, Double> skuPriceMap = new HashMap<>();
             for (ProductSkuWithPriceDTO productSkuWithPriceDTO : productSkuWithPriceDTOList) {
                 // 取买家价格，字段名称：maxBuyerPrice
                 Double price = productSkuWithPriceDTO.getMaxBuyerPrice();
@@ -113,7 +109,7 @@ public class GetGateInfoServiceImpl implements GetGateInfoService {
         if (Boolean.TRUE.equals(distributionPriceResult.getAck())) {
             return distributionPriceResult.getData();
         }
-        return Lists.newArrayList();
+        return new ArrayList<>();
     }
 
 

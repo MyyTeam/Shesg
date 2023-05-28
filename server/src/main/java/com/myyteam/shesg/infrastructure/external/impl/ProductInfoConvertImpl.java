@@ -2,6 +2,7 @@ package com.myyteam.shesg.infrastructure.external.impl;
 
 
 import cn.hutool.core.util.ObjectUtil;
+import cn.hutool.core.util.StrUtil;
 import cn.hutool.http.HttpUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
@@ -9,7 +10,6 @@ import com.myyteam.shesg.domain.entity.DhProductDTO;
 import com.myyteam.shesg.domain.entity.ProductSkuDTO;
 import com.myyteam.shesg.infrastructure.external.ProductInfoConvert;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ObjectUtils;
 
@@ -33,12 +33,12 @@ public class ProductInfoConvertImpl implements ProductInfoConvert {
         log.info("请求商品金额 响应:[{}]", responseBody);
 
         JSONObject json = JSON.parseObject(responseBody);
-        if (ObjectUtil.isNotNull(json) && StringUtils.isNotBlank(json.getString("data"))) {
+        if (ObjectUtil.isNotNull(json) && StrUtil.isNotBlank(json.getString("data"))) {
             JSONObject data = JSON.parseObject(json.getString("data"));
             JSONObject priceData = JSON.parseObject(data.getString("maxAndMinPriceVo"));
             if (Objects.nonNull(priceData)) {
                 price = priceData.getString("taxDealMaxBuyerPrice");
-                if (StringUtils.isBlank(price)) {
+                if (StrUtil.isBlank(price)) {
                     price = priceData.getString("taxMaxBuyerPrice");
                 }
                 log.info("拿到的商品：{}, 价格：{}", itemCode, price);
@@ -47,7 +47,7 @@ public class ProductInfoConvertImpl implements ProductInfoConvert {
         } else {
             log.warn("shesg没有拿到价格：{}", itemCode);
         }
-        if (StringUtils.isBlank(price)) {
+        if (StrUtil.isBlank(price)) {
             List<ProductSkuDTO> productSkuList = dhProductDTO.getProductSkuList();
             ProductSkuDTO lowSku = productSkuList.stream().min(Comparator.comparing(ProductSkuDTO::getOriginPrice)).orElse(null);
             price = ObjectUtils.isEmpty(lowSku) ? BigDecimal.ZERO.toString() : lowSku.getOriginPrice().toString();

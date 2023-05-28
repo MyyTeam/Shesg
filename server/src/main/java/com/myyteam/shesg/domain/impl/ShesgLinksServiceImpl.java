@@ -1,20 +1,20 @@
 package com.myyteam.shesg.domain.impl;
 
+import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.IdUtil;
+import cn.hutool.core.util.StrUtil;
 import com.myyteam.shesg.common.Constants;
 import com.myyteam.shesg.domain.GetGateInfoService;
 import com.myyteam.shesg.domain.ShesgLinksService;
 import com.myyteam.shesg.domain.entity.DhProductDTO;
 import com.myyteam.shesg.enums.LinkTypeEnum;
 import com.myyteam.shesg.infrastructure.external.ProductInfoConvert;
-import com.myyteam.shesg.infrastructure.persistence.ShesgLinksAssembler;
 import com.myyteam.shesg.infrastructure.persistence.model.ShesgLinksDO;
 import com.myyteam.shesg.infrastructure.repository.ShesgLinksRepository;
 import com.myyteam.shesg.utils.GateUtil;
 import com.myyteam.shesg.web.vo.CollectionLinksVO;
-import com.myyteam.shesg.web.vo.LinksMyyVO;
+import com.myyteam.shesg.web.vo.ShesgLinksVO;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -40,21 +40,21 @@ public class ShesgLinksServiceImpl implements ShesgLinksService {
     private ProductInfoConvert productInfoConvert;
 
     @Override
-    public List<LinksMyyVO> findLinks(String userId) {
+    public List<ShesgLinksVO> findLinks(String userId) {
         return shesgLinksRepository.findLinks(userId);
     }
 
     @Override
-    public List<LinksMyyVO> findUserLinks(String userId) {
+    public List<ShesgLinksVO> findUserLinks(String userId) {
         return shesgLinksRepository.findUserLinks(userId);
     }
 
     @Override
-    public String saveSingleLink(LinksMyyVO linksRequestVo) {
+    public String saveSingleLink(ShesgLinksVO linksRequestVo) {
         String userId = linksRequestVo.getUserId();
-        ShesgLinksDO shesgLinksDO = ShesgLinksAssembler.INSTANCE.toEntity(linksRequestVo);
-        if (StringUtils.isBlank(shesgLinksDO.getId())) {
-            shesgLinksDO.setId(IdUtil.getSnowflakeNextIdStr());
+        ShesgLinksDO shesgLinksDO = BeanUtil.copyProperties(linksRequestVo, ShesgLinksDO.class);
+        if (StrUtil.isBlank(shesgLinksDO.getId())) {
+            shesgLinksDO.setId(IdUtil.getSnowflake().nextIdStr());
         }
         shesgLinksDO.setShesgUserId(userId);
         if (Objects.isNull(shesgLinksDO.getType())) {
@@ -65,12 +65,12 @@ public class ShesgLinksServiceImpl implements ShesgLinksService {
             shesgLinksDO.setRank(maxRankDO.getRank() + 1);
         }
 
-        if (StringUtils.isBlank(linksRequestVo.getTitle())) {
+        if (StrUtil.isBlank(linksRequestVo.getTitle())) {
             shesgLinksDO.setTitle("Title");
         }
 
         //判断是否需要重定向，加aid后缀以及type的类型
-        if (StringUtils.isNotBlank(linksRequestVo.getUrl()) && linksRequestVo.getUrl().contains(Constants.GATE_PRODUCT_PRE)) {
+        if (StrUtil.isNotBlank(linksRequestVo.getUrl()) && linksRequestVo.getUrl().contains(Constants.GATE_PRODUCT_PRE)) {
             shesgLinksDO.setType(LinkTypeEnum.GATE_PRODUCT_LINK.getCode());
             // 按指定模式在字符串查找
             String line = linksRequestVo.getUrl();
@@ -87,7 +87,7 @@ public class ShesgLinksServiceImpl implements ShesgLinksService {
                 if (Objects.isNull(dhProductDTO)) {
                     throw new RuntimeException("Can not find this product.");
                 }
-                if (StringUtils.isBlank(linksRequestVo.getTitle())) {
+                if (StrUtil.isBlank(linksRequestVo.getTitle())) {
                     shesgLinksDO.setTitle(dhProductDTO.getProductBaseDTO().getProductname());
                 }
                 shesgLinksDO.setImage(GateUtil.getDhgateImageUrl(dhProductDTO.getImageurl()));
@@ -106,7 +106,7 @@ public class ShesgLinksServiceImpl implements ShesgLinksService {
         }
 
         //2022.11.8处理header
-        if (StringUtils.isNotBlank(linksRequestVo.getHeaderLinkId())) {
+        if (StrUtil.isNotBlank(linksRequestVo.getHeaderLinkId())) {
             ShesgLinksDO headerLink = shesgLinksRepository.getLinkData(linksRequestVo.getHeaderLinkId());
             int headerRank = headerLink.getRank();
             List<ShesgLinksDO> prepareLinks = shesgLinksRepository.getPrePareLinks(userId, headerRank);
@@ -125,13 +125,13 @@ public class ShesgLinksServiceImpl implements ShesgLinksService {
     }
 
     @Override
-    public synchronized void saveLinks(List<LinksMyyVO> linksRequestVos) {
-        for (LinksMyyVO linksMyyVo : linksRequestVos) {
-            ShesgLinksDO shesgLinksDO = ShesgLinksAssembler.INSTANCE.toEntity(linksMyyVo);
-            if (StringUtils.isBlank(shesgLinksDO.getId())) {
-                shesgLinksDO.setId(IdUtil.getSnowflakeNextIdStr());
+    public synchronized void saveLinks(List<ShesgLinksVO> linksRequestVos) {
+        for (ShesgLinksVO shesgLinksVo : linksRequestVos) {
+            ShesgLinksDO shesgLinksDO = BeanUtil.copyProperties(shesgLinksVo, ShesgLinksDO.class);
+            if (StrUtil.isBlank(shesgLinksDO.getId())) {
+                shesgLinksDO.setId(IdUtil.getSnowflake().nextIdStr());
             }
-            shesgLinksDO.setShesgUserId(linksMyyVo.getUserId());
+            shesgLinksDO.setShesgUserId(shesgLinksVo.getUserId());
             shesgLinksRepository.saveLinksData(shesgLinksDO);
         }
     }

@@ -1,19 +1,19 @@
 package com.myyteam.shesg.domain;
 
 import com.myyteam.shesg.web.vo.CollectionLinksVO;
-import com.myyteam.shesg.web.vo.LinksMyyVO;
+import com.myyteam.shesg.web.vo.ShesgLinksVO;
 
 import java.util.List;
 
 public interface ShesgLinksService {
 
-    List<LinksMyyVO> findLinks(String userId);
+    List<ShesgLinksVO> findLinks(String userId);
 
-    List<LinksMyyVO> findUserLinks(String userId);
+    List<ShesgLinksVO> findUserLinks(String userId);
 
-    String saveSingleLink(LinksMyyVO linksRequestVo);
+    String saveSingleLink(ShesgLinksVO linksRequestVo);
 
-    void saveLinks(List<LinksMyyVO> linksRequestVos);
+    void saveLinks(List<ShesgLinksVO> linksRequestVos);
 
     Boolean deleteLink(String userId, String linkId, Integer type);
 

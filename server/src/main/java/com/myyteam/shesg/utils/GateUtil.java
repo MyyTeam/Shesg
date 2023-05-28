@@ -1,7 +1,7 @@
 package com.myyteam.shesg.utils;
 
+import cn.hutool.core.util.StrUtil;
 import com.myyteam.shesg.common.Constants;
-import org.apache.commons.lang3.StringUtils;
 
 import java.util.Random;
 
@@ -30,9 +30,9 @@ public class GateUtil {
     public static String getDhgateImageUrl(String url) {
         // 给图片补全url前缀，敦煌商品详情信息中不带前缀
         String imageUrl = url;
-        if (StringUtils.isNotBlank(imageUrl)) {
+        if (StrUtil.isNotBlank(imageUrl)) {
             String souLve = "";
-            if (StringUtils.startsWith(imageUrl, "f2/")) {
+            if (StrUtil.startWith(imageUrl, "f2/")) {
                 souLve = "300x300/";
             }
             imageUrl = Constants.GATE_IMAGE_PRE + souLve + imageUrl;

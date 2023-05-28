@@ -72,7 +72,7 @@ public class ProductSkuWithPriceDTO {
     /**
      * sku 分销价格
      */
-    private Double myyshopPrice;
+    private Double dsPrice;
     /**
      * sku库存信息
      */

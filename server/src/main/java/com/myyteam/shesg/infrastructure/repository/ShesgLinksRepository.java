@@ -1,7 +1,7 @@
 package com.myyteam.shesg.infrastructure.repository;
 
 import com.myyteam.shesg.infrastructure.persistence.model.ShesgLinksDO;
-import com.myyteam.shesg.web.vo.LinksMyyVO;
+import com.myyteam.shesg.web.vo.ShesgLinksVO;
 
 import java.util.List;
 
@@ -12,9 +12,9 @@ public interface ShesgLinksRepository {
 
     ShesgLinksDO getLinkData(String id);
 
-    List<LinksMyyVO> findLinks(String userId);
+    List<ShesgLinksVO> findLinks(String userId);
 
-    List<LinksMyyVO> findUserLinks(String userId);
+    List<ShesgLinksVO> findUserLinks(String userId);
 
     List<ShesgLinksDO> findGateProductsLink(String userId);
 

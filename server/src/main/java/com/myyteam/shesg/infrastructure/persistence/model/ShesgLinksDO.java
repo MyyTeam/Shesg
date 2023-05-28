@@ -9,9 +9,6 @@ import lombok.EqualsAndHashCode;
 
 import java.math.BigDecimal;
 
-/**
- * 非洲商品价格图片导出
- */
 @EqualsAndHashCode(callSuper = false)
 @TableName("shesg_links")
 @Data
