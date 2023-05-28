@@ -49,11 +49,12 @@ Our product roadmap is as follows:
 2.  Add support for Docker and Docker Compose:
 - 2.1). Install Docker, link: [https://docs.docker.com/engine/install/](https://docs.docker.com/engine/install/)
 - 2.2). Install Docker Compose, link : [https://docs.docker.com/compose/](https://docs.docker.com/compose/)
-3. Execute the following command in the root directory:
+3. Navigate to the project directory.
+4. Execute the following command in the project directory:
     ```shell
     docker-compose -f docker-compose.yml up -d
     ```
-4. Open in any browser:
+5. Open in any browser:
 
     After the service starts, the browser accesses of shesg, which is your Application HostIP.
 
