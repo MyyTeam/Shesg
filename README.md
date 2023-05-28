@@ -42,15 +42,13 @@ Our product roadmap is as follows:
     - Creation of creators' video posts
 
 # Quick Start
-1.  Add support for Docker and Docker Compose:
-     
-     1). Install Docker, link: [https://docs.docker.com/engine/install/](https://docs.docker.com/engine/install/)
-    
-     2). Install Docker Compose, link : [https://docs.docker.com/compose/](https://docs.docker.com/compose/)
 1. Clone this repository to your local machine, please run:
     ```shell
     git clone https://github.com/MyyTeam/Shesg.git
     ```
+2.  Add support for Docker and Docker Compose:
+     1). Install Docker, link: [https://docs.docker.com/engine/install/](https://docs.docker.com/engine/install/)
+     2). Install Docker Compose, link : [https://docs.docker.com/compose/](https://docs.docker.com/compose/)
 3. Execute the following command in the root directory:
     ```shell
     docker-compose -f docker-compose.yml up -d
