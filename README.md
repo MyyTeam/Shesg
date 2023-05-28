@@ -49,7 +49,7 @@ Our product roadmap is as follows:
      2). Install Docker Compose, link : [https://docs.docker.com/compose/](https://docs.docker.com/compose/)
 1. Clone this repository to your local machine, please run:
     ```shell
-    git clone git@github.com:MyyTeam/Shesg.git
+    git clone https://github.com/MyyTeam/Shesg.git
     ```
 3. Execute the following command in the root directory:
     ```shell
