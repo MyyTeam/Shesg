@@ -47,8 +47,8 @@ Our product roadmap is as follows:
     git clone https://github.com/MyyTeam/Shesg.git
     ```
 2.  Add support for Docker and Docker Compose:
-     1). Install Docker, link: [https://docs.docker.com/engine/install/](https://docs.docker.com/engine/install/)
-     2). Install Docker Compose, link : [https://docs.docker.com/compose/](https://docs.docker.com/compose/)
+- 2.1). Install Docker, link: [https://docs.docker.com/engine/install/](https://docs.docker.com/engine/install/)
+- 2.2). Install Docker Compose, link : [https://docs.docker.com/compose/](https://docs.docker.com/compose/)
 3. Execute the following command in the root directory:
     ```shell
     docker-compose -f docker-compose.yml up -d
