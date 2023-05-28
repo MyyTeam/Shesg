@@ -54,7 +54,11 @@ Our product roadmap is as follows:
     ```shell
     docker-compose -f docker-compose.yml up -d
     ```
-5. Open in any browser:
+5. You can check the startup status by using the following command:
+    ```shell
+    docker ps -a
+    ```
+6. Open in any browser:
 
     After the service starts, the browser accesses of shesg, which is your Application HostIP.
 
