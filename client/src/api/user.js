@@ -1,7 +1,7 @@
 import request from '@/utils/request'
 const { VUE_APP_GATEWAY_UAA, VUE_APP_GATEWAY_DS } = process.env
 
-// 用户名密码获取token
+// Username password get token
 export function login(data) {
   return request({
     url: `${VUE_APP_GATEWAY_DS}/login`,
@@ -10,7 +10,6 @@ export function login(data) {
   })
 }
 
-// access_token刷新token
 export function fetchRefreshToken(data) {
   return request({
     url: `${VUE_APP_GATEWAY_UAA}/oauth/refresh/token`,
@@ -28,7 +27,7 @@ export function getInfo(params) {
 }
 
 /**
- * 用户的订单信息
+ * The user's order information
  */
 export function getOrderList(data) {
   return request({

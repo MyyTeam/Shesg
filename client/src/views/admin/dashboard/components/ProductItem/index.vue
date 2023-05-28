@@ -109,12 +109,6 @@ export default {
   },
   inject: ['traceEventInfo'],
   computed: {
-    // imgStyle() {
-    //   const height = this.productHeight
-    //   return {
-    //     height: height - 16 + 'px'
-    //   }
-    // },
     isSelection() {
       return !this.type
     },

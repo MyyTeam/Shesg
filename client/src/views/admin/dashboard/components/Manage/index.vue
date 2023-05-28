@@ -10,7 +10,6 @@
       <ManageContent @addHeader="addHeader" />
       <b-icon icon="x" class="collapse-x" @click="toggleCollapse()"></b-icon>
     </b-collapse>
-    <!-- 移动端弹窗 -->
     <ActionSheet :visible.sync="popupVisible" :title="$t('dashboard.manage.dialogTitle')" customClass="manage-link-dialog" height="230px" @close="popupVisible=false">
       <ManageContent @addHeader="addHeader"  />
     </ActionSheet>

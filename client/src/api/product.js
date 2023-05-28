@@ -1,7 +1,7 @@
 import request from '@/utils/request'
 const { VUE_APP_GATEWAY_DS } = process.env
 
-// 单独新增/修改一个link
+// Add/modify a single link
 export function addSingleLink(data) {
   return request({
     url: `${VUE_APP_GATEWAY_DS}/product/add/single-link`,
@@ -9,7 +9,7 @@ export function addSingleLink(data) {
     data
   })
 }
-// 修改links
+// Modifying links
 export function changeLinks(data) {
   return request({
     url: `${VUE_APP_GATEWAY_DS}/product/add/links`,
@@ -18,7 +18,7 @@ export function changeLinks(data) {
   })
 }
 
-// 删除link
+// Removing Links
 export function deleteLink(params) {
   return request({
     url: `${VUE_APP_GATEWAY_DS}/product/delete/link`,
@@ -27,7 +27,7 @@ export function deleteLink(params) {
   })
 }
 
-// 查询links
+// Querying links
 export function getLinks(data) {
   return request({
     url: `${VUE_APP_GATEWAY_DS}/product/find/links`,
@@ -36,7 +36,7 @@ export function getLinks(data) {
   })
 }
 
-// 查询商品模块的分组
+// Query the grouping of the commodity module
 export function getProductGroups() {
   return request({
     url: `${VUE_APP_GATEWAY_DS}/outside-product/find/cate`,
@@ -44,7 +44,7 @@ export function getProductGroups() {
   })
 }
 
-// 查询商品模块的商品
+// Query the products of the products module
 export function getLinkProduct(params) {
   return request({
     url: `${VUE_APP_GATEWAY_DS}/outside-product/find/link/products`,
@@ -53,7 +53,7 @@ export function getLinkProduct(params) {
   })
 }
 
-// 查询各个cate的商品数量
+// Query the number of items in each cate
 export function getGroupProductsNum(params) {
   return request({
     url: `${VUE_APP_GATEWAY_DS}/outside-product/find/cate-products-num`,
@@ -63,7 +63,7 @@ export function getGroupProductsNum(params) {
 }
 
 /**
- * 查询联盟商品
+ * Query Alliance products
  */
 export function getAffiliateProductList(data) {
   return request({
@@ -74,7 +74,7 @@ export function getAffiliateProductList(data) {
 }
 
 /**
- * 获取gate商品图片
+ * Get gate product images
  */
 export function getGateProduct(params) {
   return request({
@@ -85,7 +85,7 @@ export function getGateProduct(params) {
 }
 
 /**
- * 复制另一个账户的links
+ * Copy the links of another account
  */
 export function copyLinksByUsername(params) {
   return request({
@@ -96,7 +96,7 @@ export function copyLinksByUsername(params) {
 }
 
 /**
- * 获取各模块link数量
+ * Get the number of links for each module
  */
 export function getLinksCount(params) {
   return request({

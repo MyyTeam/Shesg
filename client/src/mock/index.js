@@ -207,6 +207,5 @@ Mock.mock(`${VUE_APP_BASE_API}${VUE_APP_GATEWAY_DS}/openai/recommend`, {
 })
 
 Mock.setup({
-  // 随机延时200-300毫秒，模拟网络延时
   timeout: '200-300'
 })

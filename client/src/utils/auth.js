@@ -11,7 +11,7 @@ export function getToken () {
 }
 
 export function setToken (token, expires) {
-  expires = isNumber(expires) ? Math.ceil(expires / 3600 / 24) : 7 // 默认7天
+  expires = isNumber(expires) ? Math.ceil(expires / 3600 / 24) : 7 // Default 7 days
   return Cookies.set(TokenKey, token, {
     expires
   })
@@ -34,12 +34,12 @@ export function removeUserInfo() {
   return window.localStorage.removeItem(UserInfoKey)
 }
 
-// 获取f值
+// Get F value
 export function getF() {
   return Cookies.get(FKey) || ''
 }
 
-// userId（用于埋点）
+// userId（Use for Data-Report）
 export function setUserId(data) {
   return window.localStorage.setItem(UserIdKey, data)
 }
@@ -52,7 +52,7 @@ export function removeUserId() {
   return window.localStorage.removeItem(UserIdKey)
 }
 
-// 邀请弹框展示
+// Invite the popup
 export function getInvitation() {
   return window.localStorage.getItem(InvitationKey) || 'show'
 }

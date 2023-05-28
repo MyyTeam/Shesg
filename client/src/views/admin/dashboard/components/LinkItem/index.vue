@@ -14,7 +14,6 @@
                 <svg-icon icon-class="edit" class="edit-icon icon-1" />
                 <span class="text">{{linkInfo.title}}</span>
                 <div class="icon-2">
-                  <!-- <svg-icon icon-class="edit" class="" /> -->
                 </div>
               </div>
             </span>
@@ -24,7 +23,6 @@
         <div class="link-item__url" v-if="!linkInfo.type">
           <span v-trace:[linkSpmc].click="traceEventInfo" spm-index="editurl" v-if="!showUrlInput" @click="showUrlInput=true">
             <span class="url-text">{{linkInfo.url || 'URL'}}</span>
-            <!-- <svg-icon icon-class="edit" class="edit-icon" id="url-edit" /> -->
           </span>
           <b-form-input v-else id="url-input" class="link-input url-input" v-model.trim="linkInfo.url" max="1024" autofocus @blur="saveUrlInput" @keyup.enter="saveUrlInput"></b-form-input>
           <div v-show="showUrlError" class="url-error">The link URL is not allowed!</div>

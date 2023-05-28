@@ -17,7 +17,6 @@
       </b-collapse>
     </div>
 
-    <!-- 移动端弹窗 -->
     <ActionSheet :visible.sync="popupVisible" title="Add New Link" customClass="manage-link-dialog" height="320px" @close="closeCollapse">
       <ManageContent v-if="popupVisible" v-bind="$attrs" @add-link="addLink"  />
     </ActionSheet>

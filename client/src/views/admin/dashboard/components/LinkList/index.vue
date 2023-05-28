@@ -164,34 +164,8 @@ export default {
       this.$emit('changeLink', filterLinks)
       bus.$emit('update-link-preview', refreshIndex, refreshId)
     },
-    async addHeaderLink(type) {
-      const isLogin = await this.$store.dispatch('user/checkLoginHandle')
-      if (!isLogin) return false
-
-      // const title = this.initLinkTitle(type)
-      const initLink = {
-        id: null,
-        title: 'Headline Title',
-        url: '',
-        rank: 0,
-        type,
-        isAvailable: 1,
-        image: ''
-      }
-      const rank = this.linkList.length ? this.linkList[0].rank + 1 : 0
-      this.loading = true
-      addSingleLink({ ...initLink, rank }).then(res => {
-        const id = res.data
-        this.linkList.unshift({ ...initLink, id, rank })
-        this.tempList = JSON.parse(JSON.stringify(this.linkList))
-        this.getFilterLinkList()
-        this.getLinkHeaders()
-      }).finally(() => {
-        this.loading = false
-      })
-    },
     getLinkHeaders(linkList = this.linkList) {
-      // 现有的header集合（不包含title为空和重复项）
+      // The existing set of headers (excluding empty and duplicate titles)
       const linkHeaders = [...linkList]
         .filter(item => item.type === 4 && item.title)
         .map(item => {

@@ -9,65 +9,65 @@ import BScroll from 'better-scroll'
 export default {
   props: {
     /**
-      * 1 滚动的时候会派发scroll事件，会截流。
-      * 2 滚动的时候实时派发scroll事件，不会截流。
-      * 3 除了实时派发scroll事件，在swipe的情况下仍然能实时派发scroll事件
+      * 1 The scroll event is sent when scrolling, which stops the stream.
+      * 2 Dispatch the scroll event in real time while scrolling, without blocking the stream.
+      * 3 In addition to real-time dispatch of scroll events, we can still dispatch real-time scroll events in the case of swipe  
       */
     probeType: {
       type: Number,
       default: 1
     },
     /**
-      * 点击列表是否派发click事件
+      * Whether the click event should be dispatched for the click list
       */
     click: {
       type: Boolean,
       default: true
     },
     /**
-      * 是否开启横向滚动
+      * 
       */
     scrollX: {
       type: Boolean,
       default: false
     },
     /**
-      * 是否派发滚动事件
+      * Whether to dispatch scroll events
       */
     listenScroll: {
       type: Boolean,
       default: false
     },
     /**
-      * 列表的数据
+      * List data
       */
     data: {
       type: Array,
       default: null
     },
     /**
-      * 是否派发滚动到底部的事件，用于上拉加载
+      * Whether to dispatch a scroll to the bottom event for pull-up loading
       */
     pullup: {
       type: Boolean,
       default: false
     },
     /**
-      * 是否派发顶部下拉的事件，用于下拉刷新
+      * Whether to dispatch a top drop-down event for a drop-down refresh
       */
     pulldown: {
       type: Boolean,
       default: false
     },
     /**
-      * 是否派发列表滚动开始的事件
+      * Whether to dispatch an event for the start of list scrolling
       */
     beforeScroll: {
       type: Boolean,
       default: false
     },
     /**
-      * 当数据更新后，刷新scroll的延时。
+      * When the data is updated, refresh the scroll latency.
       */
     refreshDelay: {
       type: Number,
@@ -80,7 +80,6 @@ export default {
     }
   },
   mounted() {
-    // 保证在DOM渲染完毕后初始化better-scroll
     setTimeout(() => {
       this._initScroll()
     }, 20)
@@ -88,7 +87,6 @@ export default {
   methods: {
     _initScroll() {
       if (!this.$refs.wrapper) { return }
-      // better-scroll的初始化
       this.scroll = new BScroll(
         this.$refs.wrapper,
         {
@@ -102,32 +100,32 @@ export default {
           scrollX: this.scrollX
         }
       )
-      // 是否派发滚动事件
+      // Whether to dispatch scroll events
       if (this.listenScroll) {
         const me = this
         this.scroll.on('scroll', (pos) => {
           me.$emit('scroll', pos)
         })
       }
-      // 是否派发滚动到底部事件，用于上拉加载
+      // Whether to dispatch a scroll to the bottom event for pull-up loading
       if (this.pullup) {
         this.scroll.on('scrollEnd', () => {
-          // 滚动到底部
+          // Scroll down to the bottom
           if (this.scroll.y <= (this.scroll.maxScrollY + 50)) {
             this.$emit('scrollToEnd')
           }
         })
       }
-      // 是否派发顶部下拉事件，用于下拉刷新
+      // Whether to dispatch a top drop-down event for a drop-down refresh
       if (this.pulldown) {
         this.scroll.on('touchend', (pos) => {
-          // 下拉动作
+          // Pull down action
           if (pos.y > 50) {
             this.$emit('pulldown')
           }
         })
       }
-      // 是否派发列表滚动开始的事件
+      // Whether to dispatch an event for the start of list scrolling
       if (this.beforeScroll) {
         this.scroll.on('beforeScrollStart', () => {
           this.$emit('beforeScroll')
@@ -135,19 +133,15 @@ export default {
       }
     },
     disable() {
-      // 代理better-scroll的disable方法
       this.scroll && this.scroll.disable()
     },
     enable() {
-      // 代理better-scroll的enable方法
       this.scroll && this.scroll.enable()
     },
     refresh() {
-      // 代理better-scroll的refresh方法
       this.scroll && this.scroll.refresh()
     },
     scrollTo() {
-      // 代理better-scroll的scrollTo方法
       this.scroll && this.scroll.scrollTo.apply(this.scroll, arguments)
     },
     scrollToElement() {
@@ -156,7 +150,7 @@ export default {
     }
   },
   watch: {
-    // 监听数据的变化，延时refreshDelay时间后调用refresh方法重新计算，保证滚动效果正常
+    // Listen to the data changes, delay the refreshDelay time and call refresh method to recalculate to ensure that the scrolling effect is normal
     data() {
       setTimeout(() => {
         this.refresh()

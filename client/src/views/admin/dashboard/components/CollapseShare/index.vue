@@ -74,7 +74,7 @@ export default {
         canvas.height = image.height
         var context = canvas.getContext('2d')
         context.drawImage(image, 0, 0, image.width, image.height)
-        var url = canvas.toDataURL('image/png') // 得到图片的base64编码数据
+        var url = canvas.toDataURL('image/png') // Get the base64-encoded data of the image
         FileSaver.saveAs(url, `${name}.png`)
       }
       image.src = imgsrc

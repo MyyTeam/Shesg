@@ -3,12 +3,9 @@ import { getToken } from '@/utils/auth'
 import { isBlob } from '@/utils/validate'
 import Message from '@/plugins/Message'
 import store from '@/store'
-// import router from '@/router'
 const { VUE_APP_BASE_API } = process.env
-// create an axios instance
 const service = axios.create({
   baseURL: VUE_APP_BASE_API, // url = base url + request url
-  // withCredentials: true, // send cookies when cross-domain requests
   timeout: 60000 // request timeout
 })
 

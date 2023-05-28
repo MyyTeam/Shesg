@@ -2,19 +2,6 @@
   <div class="recommend-card">
     <div class="recommend-card__title p-3 d-flex justify-content-between">
       <div class="title">ESG for you</div>
-      <!-- <div class="toggle">
-        <b-form-checkbox
-          v-trace:affproduct.click="traceEventInfo"
-          spm-index="onoff"
-          v-model="linkInfo.isAvailable"
-          :value="1"
-          :unchecked-value="0"
-          name="check-button"
-          button-variant="success"
-          switch
-          size="lg"
-          @change="changeLinkStatus" />
-      </div> -->
     </div>
     <div class="recommend-card__info px-3 pb-3">
       Shesg officials have already listed the following affiliate products for you. The products could be displayed on your customers' end
@@ -130,13 +117,6 @@ export default {
       })
     },
     scrollChange: throttle(function(e) {
-      // const ele = e.srcElement ? e.srcElement : e.target
-      // const offsetHeight = ele.offsetHeight
-      // const scrollTop = ele.scrollTop
-      // const scrollHeight = ele.scrollHeight
-      // if (offsetHeight + scrollTop > scrollHeight - 100) {
-      //   this.getRecommendProduct()
-      // }
     }, 500),
     onShare(productUrl) {
       const copyText = joinUrl(productUrl, { f: `bm|aff|yfaf|${this.traceEventInfo.aid}|||new|` })

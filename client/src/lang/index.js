@@ -17,7 +17,6 @@ const messages = {
 export function getLanguage () {
   const chooseLanguage = Cookies.get('language')
   if (chooseLanguage) return chooseLanguage
-  // 默认英文
   return 'en'
 }
 const i18n = new VueI18n({

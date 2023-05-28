@@ -29,7 +29,6 @@
 import CollapseImage from '../CollapseImage'
 import CollapseDelete from '../CollapseDelete'
 import CollapseShare from '../CollapseShare'
-// import { mapGetters } from 'vuex'
 export default {
   components: { CollapseImage, CollapseDelete, CollapseShare },
   props: {

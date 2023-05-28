@@ -148,18 +148,15 @@ export default {
     }
   }
 }
-/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
 ::-webkit-scrollbar {
   width: 1px;
   opacity: 0;
   display: none;
 }
-/*定义滚动条轨道 内阴影+圆角*/
 ::-webkit-scrollbar-track {
   background-color: #fff;
   opacity: 0;
 }
-/*定义滑块 内阴影+圆角*/
 ::-webkit-scrollbar-thumb {
   width: 1px;
   border-radius: 1px;

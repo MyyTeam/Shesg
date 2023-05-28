@@ -1,16 +1,14 @@
 /**
  * @name: draggable
- * @description: 元素拖拽
+ * @description: 
  */
 const draggableMixin = {
   data () {
     return {
-      // 元素位置，用于样式绑定，动态更新位置(:style="{left: `${x}px`, top: `${y}px`}")
       elePos: {
         x: null,
         y: null
       },
-      // 手指（鼠标）触摸点[即拖拽开始的位置]距离拖拽元素左上角的距离
       diffOfTarget: {
         x: 0,
         y: 0
@@ -26,7 +24,7 @@ const draggableMixin = {
       }
       this.diffOfTarget.x = touch.clientX - e.target.offsetLeft
       this.diffOfTarget.y = touch.clientY - e.target.offsetTop
-      // 解决滑动穿透问题
+      // Solve the sliding penetration problem
       const scrollTop = document.scrollingElement.scrollTop
       this.offsetTop = scrollTop
       document.body.classList.add('modal-open')
@@ -37,10 +35,10 @@ const draggableMixin = {
       if (e.touches) {
         touch = e.touches[0]
       }
-      // 设置拖拽元素的位置
+      // Sets the position of the drag element
       this.elePos.x = touch.clientX - this.diffOfTarget.x
       this.elePos.y = touch.clientY - this.diffOfTarget.y
-      // 限制元素不能超过屏幕
+      //Restrict elements to not go beyond the screen
       if (this.elePos.x < 0) {
         this.elePos.x = 0
       } else if (this.elePos.x > window.screen.width) {
@@ -54,8 +52,6 @@ const draggableMixin = {
     },
     dragEndHandler (e) {
       document.body.classList.remove('modal-open')
-
-      // 原博主的这句话没加，导致最后拖曳了，会返回到顶部，加上去就没问题了
       document.documentElement.scrollTop = this.offsetTop
     },
     pcDragEndHandler(e) {

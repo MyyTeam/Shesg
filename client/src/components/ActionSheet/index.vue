@@ -11,7 +11,6 @@
             </a>
           </div>
           <div :class="customClass" class="dialog-body">
-            <!--弹窗的内容-->
             <slot></slot>
           </div>
         </div>

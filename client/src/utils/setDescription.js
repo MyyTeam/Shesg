@@ -1,5 +1,5 @@
 /**
- * @description 设置网页description
+ * @description set website page description
  */
 
 export const setDescription = (desc) => {

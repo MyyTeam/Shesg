@@ -1,7 +1,6 @@
 <template>
   <div>
     <div class="collapse-link-item group-item">
-      <!-- <div class="link-img product"><svg-icon icon-class="product" /></div> -->
       <div class="link-img"></div>
       <div class="link-content">
         <div class="title">{{ $t('dashboard.manage.groupTitle') }}</div>
@@ -10,7 +9,6 @@
       <div class="add-btn" v-trace:managelink.click="traceEventInfo" spm-index="addheader" @click="addHeader">Add</div>
     </div>
     <div class="collapse-link-item">
-      <!-- <div class="link-img"><svg-icon icon-class="link" /></div> -->
       <div class="link-img sort"></div>
       <div class="link-content">
         <div class="title">{{ $t('dashboard.manage.sortTitle') }}</div>
@@ -47,14 +45,8 @@ export default {
 .link-img {
   width: 40px;
   height: 40px;
-  // border-radius: 4px;
-  // background-color: #F7B970;
   background-image: url('~@/assets/dashboard/group.jpg');
   background-size: contain;
-  // display: flex;
-  // align-items: center;
-  // justify-content: center;
-  // font-size: 36px;
   &.sort {
     background-image: url('~@/assets/dashboard/sort.jpg');
   }

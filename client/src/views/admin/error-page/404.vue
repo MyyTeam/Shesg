@@ -11,8 +11,6 @@
       <div class="bullshit">
         <div class="bullshit__oops">OOPS!</div>
         <div class="bullshit__headline">The webmaster said that you can not enter this page...</div>
-        <!-- <div class="bullshit__info">{{ $t('page404.homepageTips') }}</div>
-        <a href="/" class="bullshit__return-home">{{ $t('page404.backBtn') }}</a> -->
       </div>
     </div>
   </div>
@@ -154,7 +152,6 @@ export default {
   }
   .bullshit {
     position: relative;
-    // float: left;
     width: 300px;
     padding: 30px 0;
     overflow: hidden;

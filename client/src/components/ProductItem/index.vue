@@ -47,7 +47,6 @@ export default {
 <style lang="scss" scoped>
 .product-item {
   margin-bottom: 14px;
-  // padding-bottom: 14px;
   position: relative;
   cursor: pointer;
   background: $white;

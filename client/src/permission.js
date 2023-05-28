@@ -18,7 +18,7 @@ router.beforeEach(async(to, from, next) => {
   const kolRouterPaths = [...adminRouterPaths, '/home']
   const pathPrefix = to.path.split('/')[1]
   if (kolRouterPaths.includes(`/${pathPrefix}`) && spmb) {
-    // 定义event_body
+    // definition event_body
     let event_entity_info = {}
     if (hasEventInfoRouter.includes(`/${pathPrefix}`)) {
       const userInfo = store.state.user.userInfo

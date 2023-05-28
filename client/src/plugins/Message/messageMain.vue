@@ -8,7 +8,6 @@
 </template>
 
 <script>
-// 定义每一个type对应的class类名
 const typeClass = {
   success: 'check-circle-fill',
   error: 'x-circle-fill',
@@ -18,15 +17,14 @@ export default {
   name: 'messageMain',
   data() {
     return {
-      visible: false, // 控制DOM显示隐藏
-      type: 'default', // 默认type值为default
-      icon: '', // 默认使用icon为空，则使用type值对应的icon
-      message: '', // 默认的message为空，由外部传入
-      duration: 2000 // 默认显示时间为2000ms
+      visible: false, // Control the DOM to show and hide
+      type: 'default', //
+      icon: '', // The default is an empty icon, so use the icon corresponding to the type value
+      message: '', // By default, message is empty and passed in from the outside
+      duration: 2000 //
     }
   },
   computed: {
-    // 如果外部传入icon则使用外部的icon，如果没有。则使用type值对应的icon
     iconClass() {
       if (this.icon) {
         return this.icon
@@ -49,8 +47,6 @@ export default {
   min-width: 100px;
   max-height: 100%;
   overflow-y: auto;
-  // color: $white;
-  // background: rgba(0, 0, 0, .7);
   border-radius: 4px;
   color: #13ce66;
   background-color: #e7faf0;

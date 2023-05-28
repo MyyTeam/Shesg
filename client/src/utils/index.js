@@ -47,22 +47,6 @@ export function parseTime(time, cFormat) {
 }
 
 /**
- * @param {string} input value
- * @returns {number} output value
- */
-export function byteLength(str) {
-  // returns the byte length of an utf8 string
-  let s = str.length
-  for (var i = str.length - 1; i >= 0; i--) {
-    const code = str.charCodeAt(i)
-    if (code > 0x7f && code <= 0x7ff) s++
-    else if (code > 0x7ff && code <= 0xffff) s += 2
-    if (code >= 0xDC00 && code <= 0xDFFF) i--
-  }
-  return s
-}
-
-/**
  * @param {Array} actual
  * @returns {Array}
  */
@@ -137,28 +121,6 @@ export function throttle(func, time) {
 }
 
 /**
- * This is just a simple version of deep copy
- * Has a lot of edge cases bug
- * If you want to use a perfect deep copy, use lodash's _.cloneDeep
- * @param {Object} source
- * @returns {Object}
- */
-export function deepClone(source) {
-  if (!source && typeof source !== 'object') {
-    throw new Error('error arguments', 'deepClone')
-  }
-  const targetObj = source.constructor === Array ? [] : {}
-  Object.keys(source).forEach(keys => {
-    if (source[keys] && typeof source[keys] === 'object') {
-      targetObj[keys] = deepClone(source[keys])
-    } else {
-      targetObj[keys] = source[keys]
-    }
-  })
-  return targetObj
-}
-
-/**
  * Check if an element has a class
  * @param {HTMLElement} elm
  * @param {string} cls
@@ -190,21 +152,8 @@ export function removeClass(ele, cls) {
 }
 
 /**
- * parse Cascader Tree data
- * @param {Array} list
- * @param {string} childrenName
- */
-export function handleCascaderTreeData(list, childrenName = 'children') {
-  if (!list || !list.length) return null
-  return list.map(item => {
-    item[childrenName] = handleCascaderTreeData(item[childrenName])
-    return item
-  })
-}
-
-/**
   *
-  *@description 判断是否是移动端
+  *@description Check it is Mobile Client
   */
 export const isMobile = () => {
   const flag = navigator.userAgent.match(
@@ -214,17 +163,17 @@ export const isMobile = () => {
 }
 
 /**
- * @description 复制文本
+ * @description Copy text
  */
 export const copy = (copyText) => {
   if (navigator.clipboard && window.isSecureContext) {
     navigator.clipboard.writeText(copyText)
   } else {
-    var input = document.createElement('textarea') // 直接构建input
-    input.value = copyText // 设置内容
-    document.body.appendChild(input) // 添加临时实例
-    input.select() // 选择实例内容
-    document.execCommand('Copy') // 执行复制
-    document.body.removeChild(input) // 删除临时实例
+    var input = document.createElement('textarea') // Building input directly
+    input.value = copyText // set content
+    document.body.appendChild(input) // add a temp instance
+    input.select() // select instance contents
+    document.execCommand('Copy') // Perform a copy
+    document.body.removeChild(input) // delete a temp instance
   }
 }

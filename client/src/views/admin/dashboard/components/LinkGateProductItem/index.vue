@@ -5,24 +5,6 @@
         <svg-icon icon-class="list" class="list-icon" />
       </div>
       <div class="link-item__main py-3 px-3">
-        <!-- <div class="header d-flex d-md-none pb-3">
-          <div class="link-item__left">
-            <svg-icon icon-class="list" class="list-icon" />
-          </div>
-          <div class="toggle">
-            <b-form-checkbox
-              v-trace:productlink.click="traceEventInfo"
-              spm-index="onoff"
-              v-model="linkInfo.isAvailable"
-              :value="1"
-              :unchecked-value="0"
-              name="check-button"
-              button-variant="success"
-              switch
-              size="lg"
-              @change="changeLinkStatus" />
-          </div>
-        </div> -->
         <div class="link-item__url d-none d-md-block">{{linkInfo.url}}</div>
         <div class="link-item__product d-flex mt-0 mt-md-3">
           <div class="product-img">

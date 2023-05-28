@@ -2,7 +2,7 @@ import request from '@/utils/request'
 const { VUE_APP_GATEWAY_DS } = process.env
 
 /**
- * 生成短链
+ * Generate short chains
 */
 export function generateShortLink(params) {
   return request({
@@ -13,7 +13,7 @@ export function generateShortLink(params) {
 }
 
 /**
- * 获取gate商品的图片
+ * Get an image of the gate product
 */
 export function getGateImg(params) {
   return request({
@@ -24,7 +24,7 @@ export function getGateImg(params) {
 }
 
 /**
- * social 分析
+ * social
  * @param {*} data
  * @returns
  */

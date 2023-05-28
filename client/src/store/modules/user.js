@@ -1,13 +1,10 @@
 import { login, fetchRefreshToken } from '@/api/user'
 import { getToken, setToken, removeToken, getUserInfo, setUserInfo, removeUserInfo, setUserId, removeUserId } from '@/utils/auth'
-import router from '@/router'
-import { param } from '@/utils'
 
 const state = {
   token: getToken(),
   userInfo: getUserInfo()
 }
-
 const mutations = {
   SET_TOKEN: (state, data) => {
     const { accessToken, expiresIn } = data
@@ -30,7 +27,6 @@ const mutations = {
   }
 
 }
-
 const actions = {
   // user login
   login({ commit, state, dispatch }, loginFormData) {
@@ -45,7 +41,7 @@ const actions = {
           return reject(new Error('Wrong username or password!'))
         }
         commit('SET_TOKEN', data)
-        // 获取用户信息和配置
+        // Get user information and configuration
         try {
           await dispatch('getInfo')
         } catch (error) {
@@ -88,32 +84,8 @@ const actions = {
         email: 'asdf@gmail.com',
         img: ''
       })
-
-      // getInfo().then(async response => {
-      //   const { data } = response
-      //   if (!data) {
-      //     return reject(new Error('Verification failed, please Login again.'))
-      //   }
-      //   commit('SET_USERINFO', data)
-      //   resolve(data)
-      // }).catch(error => {
-      //   reject(error)
-      // })
-    })
-  },
-  // 检查是否登录，未登录去登录页
-  checkLoginHandle({ commit, state, dispatch }, query = {}) {
-    return new Promise(resolve => {
-      if (!state.token) {
-        dispatch('logoutLocal').then(() => {
-          router.push(`/login?${param(query)}`)
-        }).catch(() => {})
-        resolve(false)
-      }
-      resolve(true)
     })
   }
-
 }
 
 export default {

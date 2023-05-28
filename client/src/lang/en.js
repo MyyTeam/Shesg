@@ -4,7 +4,7 @@ export default {
     commission: 'Commission Income',
     aboutCommission: 'About Commission'
   },
-  // 顶部导航
+  // Top navigation
   header: {
     changeAvatar: 'Change Avatar',
     logout: 'Logout',
@@ -12,7 +12,7 @@ export default {
     links: 'Links',
     commission: 'Commission & Invitation'
   },
-  // 首页
+  // home
   dashboard: {
     add: {
       addLink: '+ Add New Link'
@@ -39,14 +39,11 @@ export default {
       sortInfo: 'Tap and hold the three vertical dots on the left side of your link, then drag up or down. '
     }
   },
-  // 邀请分佣
   commission: {
     downlines: {
       copySuccessInfo: 'Copy Successfully. Please share it with your friends!'
     }
-
   },
-  // 登录
   login: {
     title: 'Log in to your SHEsg account',
     usernamePlaceholder: 'Username',
@@ -72,6 +69,6 @@ export default {
     continue: 'Continue',
     loadMore: 'Load More ...',
     noData: '-- No Data --',
-    rsaError: 'Rsa key doesn\'t match or not exist.' // Rsa校验失败
+    rsaError: 'Rsa key doesn\'t match or not exist.' //
   }
 }
