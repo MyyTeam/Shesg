@@ -37,9 +37,9 @@ Vue.use(Message)
 
 Vue.use(preview)
 
-const { VUE_APP_DHGATE_TRACK_URL } = process.env
+const { VUE_APP_SHESG_TRACK_URL } = process.env
 Vue.use(VueTrace, {
-  baseUrl: [VUE_APP_DHGATE_TRACK_URL],
+  baseUrl: [VUE_APP_SHESG_TRACK_URL],
   spm_a: 'lmen'
 })
 

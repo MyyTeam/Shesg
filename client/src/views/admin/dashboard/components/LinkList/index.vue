@@ -57,7 +57,7 @@
       </b-overlay>
     </template>
     <div v-else class="login-card px-3 px-md-5">
-      <p>Start your affiliate business with SHEsg!</p>
+      <p>Start your affiliate business with shESG!</p>
       <p>Sign in to unlock products of 51% commission.</p>
       <b-button
         class="login-btn main-plain-btn mt-4"

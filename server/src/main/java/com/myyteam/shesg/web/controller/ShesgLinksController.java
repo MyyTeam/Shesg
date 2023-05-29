@@ -4,7 +4,7 @@ import com.myyteam.shesg.common.Result;
 import com.myyteam.shesg.domain.ShesgLinksService;
 import com.myyteam.shesg.web.param.QueryLinksParam;
 import com.myyteam.shesg.web.vo.CollectionLinksVO;
-import com.myyteam.shesg.web.vo.LinksMyyVO;
+import com.myyteam.shesg.web.vo.ShesgLinksVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,22 +20,22 @@ public class ShesgLinksController {
     private ShesgLinksService shesgLinksService;
 
     @PostMapping("/find/links")
-    public Result<List<LinksMyyVO>> findLinks(@RequestBody QueryLinksParam queryLinksParam) {
+    public Result<List<ShesgLinksVO>> findLinks(@RequestBody QueryLinksParam queryLinksParam) {
         return Result.succeed(shesgLinksService.findLinks(queryLinksParam.getUserId()));
     }
 
     @PostMapping("/find/user-links")
-    public Result<List<LinksMyyVO>> findUserLinks(@RequestParam(value = "userId") String userId) {
+    public Result<List<ShesgLinksVO>> findUserLinks(@RequestParam(value = "userId") String userId) {
         return Result.succeed(shesgLinksService.findUserLinks(userId));
     }
 
     @PostMapping("/add/single-link")
-    public Result<String> saveLinks(@RequestBody LinksMyyVO LinksMyyVO) {
-        return Result.succeed(shesgLinksService.saveSingleLink(LinksMyyVO));
+    public Result<String> saveLinks(@RequestBody ShesgLinksVO ShesgLinksVO) {
+        return Result.succeed(shesgLinksService.saveSingleLink(ShesgLinksVO));
     }
 
     @PostMapping("/add/links")
-    public Result<Boolean> saveLinks(@RequestBody List<LinksMyyVO> linksRequestVos) {
+    public Result<Boolean> saveLinks(@RequestBody List<ShesgLinksVO> linksRequestVos) {
         shesgLinksService.saveLinks(linksRequestVos);
         return Result.succeed(Boolean.TRUE);
     }

@@ -56,24 +56,9 @@ public class ShesgLinksDO extends Model<ShesgLinksDO> {
     private Integer rank;
 
     /**
-     * 分库分表标志位
-     */
-    private Integer linkSign;
-
-    /**
-     * 跳转的url链接
-     */
-    private String redirectUrl;
-
-    /**
      * 链接描述
      */
     private String description;
-
-    /**
-     * gate商品的itemcode
-     */
-    private String gateItemcode;
 
     /**
      * 商品的汇率

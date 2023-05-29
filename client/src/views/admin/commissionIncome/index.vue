@@ -55,9 +55,9 @@
             </div>
             <b-collapse id="collapse-question" v-model="showInfoCollapse" class="collapse-question">
               <div class="commission-info__content">
-                <p>Step 1: Use link tool of SHEsg to add DHgate product link url</p>
-                <p>Step 2: Copy your own SHEsg page link</p>
-                <p>Step 3: Put your SHEsg page link on your bio accounts</p>
+                <p>Step 1: Use link tool of shESG to add ESG product link url</p>
+                <p>Step 2: Copy your own shESG page link</p>
+                <p>Step 3: Put your shESG page link on your bio accounts</p>
                 <p>Step 4: Promote the products to your audiences</p>
               </div>
               <div v-trace:gotoearn.click="traceEventInfo" spm-index="clickgotoearn" class="commission-info__link mt-2" @click="goEarn">Go to earn >></div>
@@ -123,7 +123,7 @@
         <div class="commission-question__content p-3 p-md-4">
           <div class="question-item">
             <p class="q">Q:  When and how do I get paid?</p>
-            <p class="a">A:  When the order is completed on our merchants’ site, we will send sales data to DHgate in-house affiliate network. A completed order means the buyer is satisfied with the purchase and releases payment to the seller within 45 days from the original purchase date.</p>
+            <p class="a">A:  When the order is completed on our merchants’ site, we will send sales data to shESG in-house affiliate network. A completed order means the buyer is satisfied with the purchase and releases payment to the seller within 45 days from the original purchase date.</p>
           </div>
           <div class="question-item">
             <p class="q">Q:  When can I withdraw my commission?</p>

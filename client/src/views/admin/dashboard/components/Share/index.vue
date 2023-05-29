@@ -3,7 +3,7 @@
     <div class="share-card" :class="{'share--m':type}">
       <div class="link-card">
         <b>{{ $t('dashboard.link.myLink') }}</b>
-        <span class="link">http://shesg.cc/{{userInfo &&userInfo.username}}</span>
+        <span class="link">http://shESG.cc/{{userInfo &&userInfo.username}}</span>
       </div>
       <div>
         <b-button

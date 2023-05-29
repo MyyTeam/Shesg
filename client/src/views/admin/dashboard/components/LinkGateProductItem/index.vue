@@ -7,27 +7,27 @@
       <div class="link-item__main py-3 px-3">
         <div class="link-item__url d-none d-md-block">{{linkInfo.url}}</div>
         <div class="link-item__product d-flex mt-0 mt-md-3">
-          <div class="product-img">
+          <!-- <div class="product-img">
             <b-img-lazy :src="linkInfo.image" alt="product-img" />
             <label v-if="canEditLink" class="img-change" :for="`upload${linkInfo.id}`" v-trace:productlink.click="traceEventInfo"
             spm-index="changeimage">Change</label>
-          </div>
+          </div> -->
           <div class="product-info">
-            <div class="link-item__title d-none d-md-block">
+            <div class="link-item__title d-md-block">
               <span v-trace:productlink.click="traceEventInfo" spm-index="edittitle" v-if="!showTitleInput" class="content-wrapper">
                 <div v-if="canEditLink" class="content" @click="showTitleInput=true">
                   <svg-icon icon-class="edit" class="edit-icon icon-1" />
-                  <span class="text">{{linkInfo.title}}</span>
+                  <span class="text">{{linkInfo.title||"ESG"}}</span>
                   <svg-icon icon-class="edit" class="edit-icon icon-2" />
                 </div>
                 <div v-else class="content">
-                  <span class="text">{{linkInfo.title}}</span>
+                  <span class="text">{{linkInfo.title||"ESG"}}</span>
                 </div>
               </span>
               <b-form-textarea v-else id="title-input" class="link-input title-input" v-model.trim="linkInfo.title" max="128" rows="2" autofocus  @blur="saveInput" @keyup.enter="saveInput"></b-form-textarea>
             </div>
             <div class="link-item__url d-block d-md-none">{{linkInfo.url}}</div>
-            <div class="link-item__price">
+            <!-- <div class="link-item__price">
               <span v-trace:productlink.click="traceEventInfo" spm-index="changeprice" v-if="!showPriceInput" @click="showPriceInput=true">
                 <span class="text">$ {{linkInfo.productPrice || '0'}}</span>
                 <svg-icon icon-class="edit" class="edit-icon" />
@@ -43,14 +43,14 @@
                   @blur="savePriceInput"
                   @keyup.enter="savePriceInput" />
               </div>
-            </div>
-            <div v-if="linkInfo.commissionAmount || linkInfo.rate" class="link-item__commission">
+            </div> -->
+            <!-- <div v-if="linkInfo.commissionAmount || linkInfo.rate" class="link-item__commission">
               <span v-if="linkInfo.commissionAmount">Commission ≥ ${{ linkInfo.commissionAmount }}</span>
               <span v-if="linkInfo.rate" class="product-rate">Rate: {{ linkInfo.rate }}%</span>
-            </div>
+            </div> -->
           </div>
         </div>
-        <div class="link-item__title d-block d-md-none pt-2 pb-1">
+        <!-- <div class="link-item__title d-block d-md-none pt-2 pb-1">
           <span v-trace:productlink.click="traceEventInfo" spm-index="edittitle" v-if="!showTitleInput" class="content-wrapper" >
             <div v-if="canEditLink" class="content" @click="showTitleInput=true">
               <svg-icon icon-class="edit" class="edit-icon icon-1" />
@@ -64,7 +64,7 @@
             </div>
           </span>
           <b-form-textarea v-else id="title-input" class="link-input title-input" v-model.trim="linkInfo.title" max="128" rows="2" autofocus  @blur="saveInput" @keyup.enter="saveInput"></b-form-textarea>
-        </div>
+        </div> -->
         <div class="link-item__icons d-flex d-md-none justify-content-end align-items-center">
           <svg-icon
             v-trace:productlink.click="traceEventInfo"
@@ -81,19 +81,6 @@
         </div>
       </div>
       <div class="link-item__right d-none d-md-flex py-3 pr-3">
-        <div class="toggle">
-          <b-form-checkbox
-            v-trace:productlink.click="traceEventInfo"
-            spm-index="onoff"
-            v-model="linkInfo.isAvailable"
-            :value="1"
-            :unchecked-value="0"
-            name="check-button"
-            button-variant="success"
-            switch
-            size="lg"
-            @change="changeLinkStatus" />
-        </div>
         <div class="link-item__icons d-flex align-items-center">
           <svg-icon
             v-trace:productlink.click="traceEventInfo"
@@ -116,8 +103,6 @@
 </template>
 
 <script>
-import { changeLinks } from '@/api/product'
-import { joinUrl } from '@/utils'
 import Collapse from '../Collapse'
 import { mapGetters } from 'vuex'
 export default {
@@ -178,20 +163,6 @@ export default {
     openCollapse(type) {
       this.showCollapse = true
       this.collapseType = type
-    },
-    changeLinkStatus() {
-      this.changeLinks(this.linkInfo)
-    },
-    changeLinks(data) {
-      changeLinks([data]).then(() => {
-        if (data.url && data.url.includes('dhgate.com')) {
-          data.redirectUrl = joinUrl(data.url, { f: `bm|aff|yfaf|${this.traceEventInfo.aid}|||new|` })
-        } else {
-          data.redirectUrl = data.url
-        }
-        this.linkInfo = data
-        this.$emit('update', this.linkInfo, this.index)
-      })
     },
     deleteItem() {
       this.$emit('deleteItem', this.index)

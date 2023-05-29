@@ -5,7 +5,7 @@
       <div class="popup-content text-center">
         <div class="invitation-img" />
         <h5 class="pt-3">Invitation</h5>
-        <p>Hi friend, I am conducting my affiliate business with no start-up fees on SHEsg. I sincerely invite you to join me!</p>
+        <p>Hi friend, I am conducting my affiliate business with no start-up fees on shESG. I sincerely invite you to join me!</p>
         <div v-trace:invitejoin.click.expose="{...traceEventInfo}" class="join-btn mt-3" @click="join">Join Now</div>
       </div>
     </Popup>

@@ -6,17 +6,11 @@ spring:
   application:
     name: shesg
   datasource:
-    url: jdbc:mysql://192.168.128.40:3388/shesg?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://172.17.0.1:3306/shesg?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai
     username: root
     password: dhgatesz_123
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
 
-#商品配置
-product:
-  dhUrl_prod:
-    dhgateproductInfoUrl: https://myyshopds.dhgate.com/apsaras-proxy/prod/com.dhgate.prod.api.ProdServiceV2/2.1.9/detailProductDTO
-    distributionSalesPriceUrl: https://myyshopds.dhgate.com/apsaras-proxy/prod/com.dhgate.prod.api.ProdMngService/2.1.9/findSkuPriceByMyyshopDiscount
-
-#openai:
-#  api-key: you_api_key
+openai:
+  api-key: you_api_key

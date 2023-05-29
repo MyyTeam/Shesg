@@ -128,7 +128,8 @@
                 </executions>
                 <configuration>
                     <imageName>${project.artifactId}:${project.version}</imageName>
-                    <dockerHost>http://192.168.128.41:2375</dockerHost>
+                    <!-- 其他行可以不改，这一行必须要改 -->
+                    <dockerHost>http://127.0.0.1:2375</dockerHost>
                     <imageTags>
                         <imageTag>latest</imageTag>
                     </imageTags>

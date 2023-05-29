@@ -43,14 +43,6 @@
                 {{ $t('dashboard.link.thumbnail') }}
               </b-tooltip>
             </template>
-            <svg-icon
-              v-if="isDhGateLink"
-              :id="`share-tooltip-${linkInfo.id}`"
-              v-trace:[linkSpmc].click="traceEventInfo"
-              spm-index="sharelink"
-              icon-class="share"
-              class="share-icon icon"
-              @click="openCollapse('share')" />
           </div>
           <div class="d-block d-md-none">
             <b-icon
@@ -135,9 +127,6 @@ export default {
     },
     showHeaderInfo() {
       return (this.linkInfo.type === 4 && this.linkInfo.title === 'Headline Title' && this.linkInfo.isAvailable)
-    },
-    isDhGateLink() {
-      return this.linkInfo.url?.includes('dhgate.com')
     }
   },
   methods: {
@@ -168,7 +157,7 @@ export default {
     },
     saveUrlInput() {
       const { url } = this.linkInfo
-      if (!this.canEditLink && url.includes('dhgate.com/product')) {
+      if (!this.canEditLink && url.includes('shESG.cc/product')) {
         this.showUrlError = true
         return
       } else {

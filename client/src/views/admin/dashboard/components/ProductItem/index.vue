@@ -39,7 +39,7 @@
       </div>
     </div>
     <div v-if="productInfo.productSource" class="product-source" @click.stop="onOpenClick">
-      Source: <span>Sync DHgate Affiliate</span>
+      Source: <span>Sync shESG Affiliate</span>
     </div>
     <div v-if="showSyncBtn" class="operation-btns pt-2">
       <b-button
@@ -66,8 +66,8 @@
           size="sm"
           @click.stop="onBtnClick"
         >
-          <span class="d-none d-md-block">Sync to  my SHEsg products</span>
-          <span class="d-block d-md-none">Sync to  my SHEsg</span>
+          <span class="d-none d-md-block">Sync to  my shESG products</span>
+          <span class="d-block d-md-none">Sync to  my shESG</span>
         </b-button>
       </b-overlay>
     </div>

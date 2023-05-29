@@ -1,13 +1,13 @@
 <template>
   <div class="product-item" ref="productItem" @click="linkProduct(productInfo)">
     <div class="product-img">
-      <b-img-lazy :src="productInfo.image || productInfo.imageUrl"  alt="product-img" />
+      <b-img-lazy :src="productInfo.image || productInfo.imageUrl||noDataImg"  alt="product-img" />
     </div>
     <div class="product-price">
       <span>${{productInfo.price?productInfo.price:productInfo.productPrice}}</span>
       <b-icon icon="cart3" class="cart-icon" />
     </div>
-    <div class="product-title">【ESG】{{title}}</div>
+    <div class="product-title">【ESG】{{title||"title"}}</div>
     <i class="esg-flag">ESG</i>
   </div>
 </template>
@@ -21,7 +21,9 @@ export default {
     }
   },
   data() {
-    return {}
+    return {
+      noDataImg: require('@/assets/common/no-data.png')
+    }
   },
   computed: {
     title() {

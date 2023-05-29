@@ -1,9 +1,9 @@
 <template>
   <div>
     <div class="collapse-link-copy">
-      <div class="collapse-link-copy__title pb-2 pb-md-4">Copy links from other SHEsg account</div>
+      <div class="collapse-link-copy__title pb-2 pb-md-4">Copy links from other shESG account</div>
       <div class="collapse-link-copy__content">
-        <span class="label">SHEsg Username</span>
+        <span class="label">shESG Username</span>
         <b-form-input
           id="username-input"
           class="username-input"
@@ -23,7 +23,7 @@
           Copy
         </b-button>
       </div>
-      <div v-show="showError" class="error-tip">shesg Username cannot be empty</div>
+      <div v-show="showError" class="error-tip">shESG Username cannot be empty</div>
     </div>
   </div>
 </template>

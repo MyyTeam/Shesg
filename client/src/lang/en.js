@@ -1,6 +1,6 @@
 export default {
   router: {
-    linksAdmin: 'SHEsg Admin',
+    linksAdmin: 'shESG Admin',
     commission: 'Commission Income',
     aboutCommission: 'About Commission'
   },
@@ -45,7 +45,7 @@ export default {
     }
   },
   login: {
-    title: 'Log in to your SHEsg account',
+    title: 'Log in to your shESG account',
     usernamePlaceholder: 'Username',
     passwordPlaceholder: 'Password',
     login: 'Login',

@@ -7,7 +7,7 @@
     <div class="img-card">
       <img v-if="linkItem.image" :src="linkItem.image" alt="link-img" class="link-img">
     </div>
-    <span class="link-title">{{linkItem.title}}</span>
+    <span class="link-title">{{linkItem.title||"title"}}</span>
     <div class="icon-card"></div>
   </div>
 </template>

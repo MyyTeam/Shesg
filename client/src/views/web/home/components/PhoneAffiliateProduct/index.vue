@@ -52,10 +52,7 @@ export default {
       getAffiliateProductList(this.query).then(res => {
         const data = res.data || []
         data.forEach(item => {
-          // if (item.productUrl.includes('dhgate.com')) {
           item.redirectUrl = joinUrl(item.productUrl, { f: `bm|aff|yfaf|${this.traceEventInfo.aid}|||new|` })
-          // } else if (!/^(https?):\/\//.test(item.productUrl)) {
-          //   item.redirectUrl = `https://${item.productUrl}`
           // }
         })
         this.productList = this.productList.concat(data)

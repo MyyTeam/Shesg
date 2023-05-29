@@ -1,8 +1,8 @@
 <template>
   <div class="guide-main mt-3">
     <div class="guide-information p-4">
-      <h3 class="guide-title">Why choose SHEsg to start your social business?</h3>
-      <p class="guide-info mt-3">SHEsg is official division that belongs to DHgate.com, offering thousands of product suppliers, up to 51% commission affiliate program, and empower you with useful tools!</p>
+      <h3 class="guide-title">Why choose shESG to start your social business?</h3>
+      <p class="guide-info mt-3">shESG offering thousands of ESG product suppliers, up to x% commission affiliate program, and empower you with useful tools!</p>
       <div class="tool-container">
         <div v-for="item in toolList" :key="item.id" class="tool-item" :class="{'coming':!item.path}">
           <div class="tool-item-main">

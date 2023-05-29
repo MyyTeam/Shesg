@@ -33,7 +33,7 @@ export default {
     this.getLinkList()
   },
   mounted() {
-    document.title = `${this.userInfo.username} | SHEsg`
+    document.title = `${this.userInfo.username} | shESG`
   },
   computed: {
     showToggleHeader() {

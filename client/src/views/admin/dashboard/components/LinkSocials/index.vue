@@ -11,7 +11,7 @@
       Add link on your socials
     </div>
     <div class="link-socials__content">
-      Click on an icon above to go directly to your social accounts, then paste your SHEsg link in your bio!
+      Click on an icon above to go directly to your social accounts, then paste your shESG link in your bio!
     </div>
     <div class="close-icon" @click="closeModal">
       <b-icon icon="x"  />

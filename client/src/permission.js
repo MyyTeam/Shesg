@@ -5,11 +5,11 @@ import { setDescription } from './utils/setDescription'
 
 import vueTrace from 'vue-trace'
 const { BuryingPoint } = vueTrace
-const { VUE_APP_DHGATE_TRACK_URL } = process.env
+const { VUE_APP_SHESG_TRACK_URL } = process.env
 
 router.beforeEach(async(to, from, next) => {
   // set page title
-  document.title = to.meta.title || 'SHEsg'
+  document.title = to.meta.title || 'shESG'
   setDescription(to.meta.description)
 
   const hasEventInfoRouter = ['/admin', '/home']
@@ -30,7 +30,7 @@ router.beforeEach(async(to, from, next) => {
       }
     }
     new BuryingPoint({
-      baseUrl: [VUE_APP_DHGATE_TRACK_URL],
+      baseUrl: [VUE_APP_SHESG_TRACK_URL],
       spm_a: 'lmen',
       module: 'page',
       title: '',

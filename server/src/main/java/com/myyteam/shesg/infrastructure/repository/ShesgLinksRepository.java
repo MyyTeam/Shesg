@@ -10,13 +10,11 @@ public interface ShesgLinksRepository {
 
     void deleteLink(String id);
 
-    ShesgLinksDO getLinkData(String id);
-
     List<ShesgLinksVO> findLinks(String userId);
 
     List<ShesgLinksVO> findUserLinks(String userId);
 
-    List<ShesgLinksDO> findGateProductsLink(String userId);
+    List<ShesgLinksDO> findProductsLink(String userId);
 
     List<ShesgLinksDO> findNormalLinks(String userId);
 
@@ -24,10 +22,5 @@ public interface ShesgLinksRepository {
 
     ShesgLinksDO findMaxRankLink(String userId);
 
-    List<ShesgLinksDO> getPrePareLinks(String userId, int headerRank);
-
-    int getHeaderMinLink(String userId, int maxRank);
-
-    void deleteLinkBetweenRank(String userId, int minRank, int maxRank);
 
 }

@@ -32,16 +32,6 @@ export default [
         headerTitle: '',
         showMenu: true
       }
-    }, {
-      path: 'link-generator',
-      component: () => import(/* webpackChunkName: "linkGenerator" */'@/views/admin/linkGenerator'),
-      name: 'Dashboard',
-      meta: {
-        title: 'SHEsg Admin',
-        spmb: 'links',
-        headerTitle: '',
-        showMenu: true
-      }
     }]
   }
 ]

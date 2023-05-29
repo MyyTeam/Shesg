@@ -62,7 +62,7 @@ export default {
     handleDownload() {
       this.productImages.map((item, i) => {
         const originalImg = item?.replace(/\/300x300/, '')
-        this.downloadIamge(originalImg, `${this.itemcode}-${i + 1}-shesg`)
+        this.downloadIamge(originalImg, `${this.itemcode}-${i + 1}-shESG`)
       })
     },
     downloadIamge(imgsrc, name) {

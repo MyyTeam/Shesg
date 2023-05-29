@@ -23,11 +23,7 @@ public class ShesgLinksVO {
 
     private Integer rank;
 
-    private String redirectUrl;
-
     private String description;
-
-    private String gateItemcode;
 
     private BigDecimal rate;
 

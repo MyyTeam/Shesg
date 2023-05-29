@@ -4,7 +4,7 @@
       <div class="user-card">
       <div class="avatar" :style="{backgroundImage: `url(${userInfo && userInfo.img || baseAvatar})`}"></div>
       <div class="username">@{{ username }}</div>
-      <div v-if="userInfo && userInfo.SHEsgDescription" class="username">{{ userInfo && userInfo.SHEsgDescription }}</div>
+      <div v-if="userInfo && userInfo.shESGDescription" class="username">{{ userInfo && userInfo.shESGDescription }}</div>
       <div class="social-card">
         <b-img-lazy
           v-for="item in socialList"

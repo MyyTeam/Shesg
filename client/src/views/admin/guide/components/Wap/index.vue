@@ -43,7 +43,7 @@
             </div>
           </template>
           <div v-else class="empty-card">
-            <p class="pb-2">Start your affiliate businesss with SHEsg!</p>
+            <p class="pb-2">Start your affiliate businesss with shESG!</p>
             <b-button
               class="main-plain-btn login-btn"
               variant="outline-primary"
@@ -91,13 +91,6 @@ export default {
           info: 'All in one link',
           path: '/admin/links',
           id: 'bioLink'
-        },
-        {
-          icon: require('@/assets/guide/link-generator.png'),
-          name: 'Short Link Generator',
-          info: 'Customize your link',
-          path: '/admin/link-generator',
-          id: 'shortLink'
         }
       ],
       linkList: [
